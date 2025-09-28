@@ -19,6 +19,8 @@ public class Duplicates {
             if (checkedNumbers.contains(num)) {
                 return true;
             }
+
+            checkedNumbers.add(num);
         }
 
         // only reach this when no duplicates have been found
