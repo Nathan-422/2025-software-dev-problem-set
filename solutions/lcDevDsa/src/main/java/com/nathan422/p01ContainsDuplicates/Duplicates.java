@@ -1,15 +1,9 @@
+package com.nathan422.p01ContainsDuplicates;
+
 import java.util.Set;
 import java.util.HashSet;
 
 public class Duplicates {
-
-	public static void main(final String[] args) {
-        final int[] nums = {1,3,6,1,2};
-
-        System.out.println("Dupilicates found: " + containsDuplicates(nums));
-
-        return;
-    }
 
     public static boolean containsDuplicates(int[] nums) {
         Set<Integer> checkedNumbers = new HashSet<Integer>();

@@ -1,0 +1,29 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+    
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Anagram",
+            "request": "launch",
+            "mainClass": "Anagram",
+            "projectName": "2025-software-dev-problem-set_6d702487"
+        },
+        {
+            "type": "java",
+            "name": "Duplicates",
+            "request": "launch",
+            "mainClass": "Duplicates",
+            "projectName": "2025-software-dev-problem-set_6d702487"
+        }
+    ]
+}
