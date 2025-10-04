@@ -25,7 +25,14 @@ public class GroupAnagramsTest {
         expected.add(new ArrayList<String>(Arrays.asList("tan", "nat")));
         expected.add(new ArrayList<String>(Arrays.asList("bat")));
 
-        assertEquals(expected, anagram.groupAnagrams(s));
+        expected.sort((a, b) -> {
+            return a.size() - b.size();
+        });
+        List<List<String>> tested = anagram.groupAnagrams(s);
+        tested.sort((a, b) -> {
+            return a.size() - b.size();
+        });
+        assertEquals(expected, tested);
     }
 
     @Test
