@@ -1,40 +1,29 @@
 package com.nathan422.p04GroupAnagrams;
-import java.util.List;
-import java.util.ArrayList;
+import java.util.*;
 
 public class GroupAnagrams {
     public List<List<String>> groupAnagrams(String[] strs) {
+        Map<List<Integer>, Integer> insertionIndex = new HashMap<>();
         List<List<String>> output = new ArrayList<List<String>>();
         for (String str : strs) {
-//            convert each string to an int List
-//            check if that hash does not exist and add it and return array if not
-//            add str to appropriate anagram list
-
-        }
-
-        return new ArrayList<List<String>>();
-    }
-
-    private boolean isAnagram(String a, String b) {
-        if (a.length() != b.length()) {
-            return false;
-        }
-
-        int[] difference = new int[26];
-
-        for (int i = 0; i < a.length(); i++) {
-            difference[a.charAt(i) - 'a']++;
-            difference[b.charAt(i) - 'a']--;
-        }
-
-        for (int i = 0; i < difference.length; i++) {
-            if (difference[i] != 0) {
-                return false;
+            // convert each string to an int List
+            List<Integer> anagramFingerprint = new ArrayList<>(Collections.nCopies(26, 0));
+            for (char l : str.toCharArray()) {
+                anagramFingerprint.set(l - 'a', anagramFingerprint.get(l - 'a') + 1);
             }
+
+            // check if that hash does not exist and add it and return array if not
+            if (!(insertionIndex.containsKey(anagramFingerprint))) {
+                int insertionPoint = output.size();
+                output.add(new ArrayList<>());
+                insertionIndex.put(anagramFingerprint, insertionPoint);
+            }
+
+            // add str to appropriate anagram list
+            output.get(insertionIndex.get(anagramFingerprint)).add(str);
         }
 
-        return true;
+        return output;
     }
-
 
 }

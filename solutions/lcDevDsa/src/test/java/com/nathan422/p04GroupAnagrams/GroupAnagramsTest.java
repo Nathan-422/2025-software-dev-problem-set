@@ -28,4 +28,25 @@ public class GroupAnagramsTest {
         assertEquals(expected, anagram.groupAnagrams(s));
     }
 
+    @Test
+    public void worksWithEmptyStringAsArgument() {
+        GroupAnagrams anagram = new GroupAnagrams();
+        String[] s = new String[]{""};
+
+        List<List<String>> expected = new ArrayList<List<String>>();
+        expected.add(new ArrayList<String>(Arrays.asList("")));
+
+        assertEquals(expected, anagram.groupAnagrams(s));
+    }
+
+    @Test
+    public void worksWithOneCharStringAsArgument() {
+        GroupAnagrams anagram = new GroupAnagrams();
+        String[] s = new String[]{""};
+
+        List<List<String>> expected = new ArrayList<List<String>>();
+        expected.add(new ArrayList<String>(Arrays.asList("")));
+
+        assertEquals(expected, anagram.groupAnagrams(s));
+    }
 }
