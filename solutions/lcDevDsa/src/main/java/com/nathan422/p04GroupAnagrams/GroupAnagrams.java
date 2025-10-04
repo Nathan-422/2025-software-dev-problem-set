@@ -4,6 +4,14 @@ import java.util.ArrayList;
 
 public class GroupAnagrams {
     public List<List<String>> groupAnagrams(String[] strs) {
+        List<List<String>> output = new ArrayList<List<String>>();
+        for (String str : strs) {
+//            convert each string to an int List
+//            check if that hash does not exist and add it and return array if not
+//            add str to appropriate anagram list
+
+        }
+
         return new ArrayList<List<String>>();
     }
 
