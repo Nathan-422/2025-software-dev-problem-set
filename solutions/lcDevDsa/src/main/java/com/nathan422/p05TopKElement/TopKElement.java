@@ -7,12 +7,33 @@ public class TopKElement {
     public int[] topKFrequent(int[] nums, int k) {
 
         // count in O(n) time
-        Map<Integer, Integer> counts = new HashMap<>();
+        Map<Integer, Integer> counts = new HashMap<>(); // 1 indexed
         for (int i : nums) {
-            counts.putIfAbsent(i, 1);
+            if (counts.containsKey(i) ) {
+                counts.putIfAbsent(i, 1);
+                continue;
+            }
             counts.put(i, counts.get(i) + 1);
         }
-        
-        return new int[]{0,1};
+
+        // assign to bucket sort array
+        int[] countsAsIndexArray = new int[nums.length];    // 0 indexed
+        for (int key : counts.keySet()) {
+            countsAsIndexArray[counts.get(key)] = key;
+        }
+
+        // Write most frequent items to output array
+        int[] output = new int[k];
+        int remainingNumbers = k;   // Will be subtracted from until output is full
+        for (int i = countsAsIndexArray.length; i > 0; i--) {
+            if (countsAsIndexArray[i] == 0) continue;
+
+            output[remainingNumbers - 1] = countsAsIndexArray[i];
+            remainingNumbers = remainingNumbers--;
+
+            if (remainingNumbers == 0) break;
+        }
+
+        return output;
     }
 }
