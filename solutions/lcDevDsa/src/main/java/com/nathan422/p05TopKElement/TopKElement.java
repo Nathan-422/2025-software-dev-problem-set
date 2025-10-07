@@ -19,13 +19,13 @@ public class TopKElement {
         // assign to bucket sort array
         int[] countsAsIndexArray = new int[nums.length];    // 0 indexed
         for (int key : counts.keySet()) {
-            countsAsIndexArray[counts.get(key)] = key;
+            countsAsIndexArray[counts.get(key) - 1] = key;
         }
 
         // Write most frequent items to output array
         int[] output = new int[k];
-        int remainingNumbers = k;   // Will be subtracted from until output is full
-        for (int i = countsAsIndexArray.length; i > 0; i--) {
+        int remainingNumbers = k;   // 1 indexed.  Will be subtracted from until output is full
+        for (int i = countsAsIndexArray.length - 1; i >= 0; i--) {
             if (countsAsIndexArray[i] == 0) continue;
 
             output[remainingNumbers - 1] = countsAsIndexArray[i];
